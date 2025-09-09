@@ -69,11 +69,26 @@ $route['auth/authenticate'] = 'auth/authenticate';
 $route['authenticate'] = 'auth/authenticate';
 $route['auth/save_register'] = 'auth/save_register';
 $route['auth/logout'] = 'auth/logout';
+
+
 $route['createpost'] = 'CreateNewsPostController/createpost';
 $route['createnewspost/store'] = 'CreateNewsPostController/store';
 $route['createnewspost/update/(:num)'] = 'CreateNewsPostController/update/$1';
 $route['createnewspost/delete/(:num)'] = 'CreateNewsPostController/delete/$1';
 $route['allposts'] = 'CreateNewsPostController/allposts';
+
+// press release
+// Press Release Routes
+$route['createpressrelease'] = 'CreatePressReleaseController/createpressrelease';
+$route['pressrelease/store'] = 'CreatePressReleaseController/store';
+$route['pressrelease/update/(:num)'] = 'CreatePressReleaseController/update/$1';
+$route['pressrelease/delete/(:num)'] = 'CreatePressReleaseController/delete/$1';
+$route['allpressreleases'] = 'CreatePressReleaseController/allpressreleases';
+
+$route['pressrelease'] = 'pressrelease/index';
+$route['pressrelease/(:any)'] = 'pressrelease/view/$1';
+
+
 
 // Interviews
 $route['interviews/create'] = 'CreateInterviewController/index';
