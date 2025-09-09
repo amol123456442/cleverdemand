@@ -79,112 +79,107 @@ class CreateNewsPostController extends CI_Controller
         }
     }
 
-    public function store()
-    {
-        $user_id = $this->session->userdata('user_id');
-        if (!$user_id) {
-            $this->session->set_flashdata('error', 'Session expired. Please login again.');
-            redirect('auth/login');
-        }
+   public function store()
+{
+    $user_id = $this->session->userdata('user_id');
+    if (!$user_id) {
+        $this->session->set_flashdata('error', 'Session expired. Please login again.');
+        redirect('auth/login');
+    }
 
-        $this->form_validation->set_rules('title', 'Title', 'required|trim|max_length[255]');
-        $this->form_validation->set_rules('slug', 'Slug', 'required|trim|regex_match[/^[a-z0-9-]+$/]|is_unique[news_posts.slug]', [
-            'regex_match' => 'The %s must contain only lowercase letters, numbers, and hyphens.'
-        ]);
-        $this->form_validation->set_rules('main_category', 'Main Category', 'required|in_list[MarTech,HRTech,Fintech,Consumer Tech]', [
-            'in_list' => 'Please select a valid main category.'
-        ]);
-        $this->form_validation->set_rules('category', 'Subcategories', 'required|callback_validate_subcategories');
-        $this->form_validation->set_rules('content', 'Content', 'required|trim');
-        $this->form_validation->set_rules('provided', 'Provided By', 'required|in_list[Business Wire,PR Newswire,PRWeb,GlobeNewswire]', [
-            'in_list' => 'Please select a valid provider.'
-        ]);
+    $this->form_validation->set_rules('title', 'Title', 'required|trim');
+    $this->form_validation->set_rules('slug', 'Slug', 'required|trim|regex_match[/^[a-z0-9-]+$/]|is_unique[news_posts.slug]', [
+        'regex_match' => 'The %s must contain only lowercase letters, numbers, and hyphens.'
+    ]);
+    $this->form_validation->set_rules('main_category', 'Main Category', 'required|in_list[MarTech,HRTech,Fintech,Consumer Tech]', [
+        'in_list' => 'Please select a valid main category.'
+    ]);
+    $this->form_validation->set_rules('category', 'Subcategories', 'required|callback_validate_subcategories');
+    $this->form_validation->set_rules('content', 'Content', 'required|trim');
+    $this->form_validation->set_rules('provided', 'Provided By', 'required|in_list[Business Wire,PR Newswire,PRWeb,GlobeNewswire]', [
+        'in_list' => 'Please select a valid provider.'
+    ]);
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->session->set_flashdata('error', validation_errors());
-            $this->session->set_flashdata('form_data', $this->input->post());
-            redirect('createpost');
-        }
+    if ($this->form_validation->run() == FALSE) {
+        $this->session->set_flashdata('error', validation_errors());
+        $this->session->set_flashdata('form_data', $this->input->post());
+        redirect('createpost');
+    }
 
-        $upload_path = FCPATH . 'Uploads/';
-        if (!is_dir($upload_path)) {
-            if (!mkdir($upload_path, 0777, true)) {
-                log_message('error', 'Failed to create upload directory: ' . $upload_path);
-                $this->session->set_flashdata('error', 'Server error: Unable to create upload directory.');
-                redirect('createpost');
-            }
-        }
-
-        $config['upload_path'] = $upload_path;
-        $config['allowed_types'] = 'jpg|jpeg|png|gif|jfif|webp';
-
-        // Increase the size limit here:
-        $config['max_size'] = 5120; // Size in KB (5120 KB = 5 MB)
-        $config['max_width'] = 5000; // Set higher if needed
-        $config['max_height'] = 5000;
-
-        $this->upload->initialize($config);
-
-
-        $imagePath = '';
-        if (!empty($_FILES['image']['name'])) {
-            if ($this->upload->do_upload('image')) {
-                $uploadData = $this->upload->data();
-                $imagePath = 'Uploads/' . $uploadData['file_name'];
-            } else {
-                log_message('error', 'Upload error: ' . $this->upload->display_errors('', ''));
-                $this->session->set_flashdata('error', $this->upload->display_errors());
-                $this->session->set_flashdata('form_data', $this->input->post());
-                redirect('createpost');
-            }
-        }
-
-        $provided = $this->input->post('provided');
-        $logoPath = '';
-        switch ($provided) {
-            case 'Business Wire':
-                $logoPath = 'assets/logos/business_wire.png';
-                break;
-            case 'PR Newswire':
-                $logoPath = 'assets/logos/pr_newswire.png';
-                break;
-            case 'PRWeb':
-                $logoPath = 'assets/logos/PRWeb_Logo.png';
-                break;
-            case 'GlobeNewswire':
-                $logoPath = 'assets/logos/globenewswire.png';
-                break;
-        }
-        $content = $this->input->post('content'); // Do NOT escape
-
-        $data = [
-            'title' => $this->input->post('title'),
-            'slug' => $this->input->post('slug'),
-            'main_category' => $this->input->post('main_category'),
-            'category' => $this->input->post('category'),
-            'provided' => $provided,
-            'content' => $content, // raw HTML allowed
-            'user_id' => $user_id,
-            'image' => $imagePath,
-            'provider_logo' => $logoPath,
-            'updated_at' => $this->getCurrentTimestamp()
-        ];
-
-        try {
-            if ($this->CreateNewsPostModel->insert($data)) {
-                $this->session->set_flashdata('success', 'News post created successfully!');
-                redirect('createpost');
-            } else {
-                log_message('error', 'Database insert failed for news_posts');
-                $this->session->set_flashdata('error', 'Failed to create post. Please try again.');
-                redirect('createpost');
-            }
-        } catch (Exception $e) {
-            log_message('error', 'Error in store: ' . $e->getMessage());
-            $this->session->set_flashdata('error', 'An error occurred while creating the post.');
+    $upload_path = FCPATH . 'Uploads/';
+    if (!is_dir($upload_path)) {
+        if (!mkdir($upload_path, 0777, true)) {
+            log_message('error', 'Failed to create upload directory: ' . $upload_path);
+            $this->session->set_flashdata('error', 'Server error: Unable to create upload directory.');
             redirect('createpost');
         }
     }
+
+    $config['upload_path'] = $upload_path;
+    $config['allowed_types'] = 'jpg|jpeg|png|gif|jfif|webp';
+    $config['max_size'] = 5120; // 5 MB
+    $config['max_width'] = 5000;
+    $config['max_height'] = 5000;
+    $config['encrypt_name'] = TRUE; // Optional: To avoid filename conflicts
+
+    $this->upload->initialize($config);
+
+    $imagePath = 'assets/default.jpg'; // Default image
+    if (!empty($_FILES['image']['name'])) {
+        if ($this->upload->do_upload('image')) {
+            $uploadData = $this->upload->data();
+            $imagePath = 'Uploads/' . $uploadData['file_name']; // Save relative path
+        } else {
+            log_message('error', 'Upload error: ' . $this->upload->display_errors('', ''));
+            $this->session->set_flashdata('error', $this->upload->display_errors());
+            $this->session->set_flashdata('form_data', $this->input->post());
+            redirect('createpost');
+        }
+    }
+
+    $provided = $this->input->post('provided');
+    $logoPath = '';
+    switch ($provided) {
+        case 'Business Wire':
+            $logoPath = 'assets/logos/business_wire.png';
+            break;
+        case 'PR Newswire':
+            $logoPath = 'assets/logos/pr_newswire.png';
+            break;
+        case 'PRWeb':
+            $logoPath = 'assets/logos/PRWeb_Logo.png';
+            break;
+        case 'GlobeNewswire':
+            $logoPath = 'assets/logos/globenewswire.png';
+            break;
+    }
+
+    $data = [
+        'title'        => $this->input->post('title'),
+        'slug'         => url_title($this->input->post('title'), 'dash', TRUE),
+        'main_category' => $this->input->post('main_category'),
+        'category'     => $this->input->post('category'),
+        'provided'     => $this->input->post('provided'),
+        'content'      => $this->input->post('content'),
+        'user_id'      => $user_id,
+        'image'        => $imagePath,
+    ];
+
+    try {
+        if ($this->CreateNewsPostModel->insert($data)) {
+            $this->session->set_flashdata('success', 'News post created successfully!');
+            redirect('createpost');
+        } else {
+            log_message('error', 'Database insert failed for news_posts');
+            $this->session->set_flashdata('error', 'Failed to create post. Please try again.');
+            redirect('createpost');
+        }
+    } catch (Exception $e) {
+        log_message('error', 'Error in store: ' . $e->getMessage());
+        $this->session->set_flashdata('error', 'An error occurred while creating the post.');
+        redirect('createpost');
+    }
+}
 
     public function update($id)
     {
@@ -200,7 +195,7 @@ class CreateNewsPostController extends CI_Controller
             redirect('createpost');
         }
 
-        $this->form_validation->set_rules('title', 'Title', 'required|trim|max_length[255]');
+        $this->form_validation->set_rules('title', 'Title', 'required|trim');
         $this->form_validation->set_rules('main_category', 'Main Category', 'required|in_list[MarTech,HRTech,Fintech,Consumer Tech]', [
             'in_list' => 'Please select a valid main category.'
         ]);

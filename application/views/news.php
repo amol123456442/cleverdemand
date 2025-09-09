@@ -63,7 +63,7 @@
                     <span class="featured-label fw-bold">Latest News</span>
                 </div>
 
-             <form method="get" class="row row-cols-1 row-cols-md-3 g-3 mb-4">
+                <form method="get" class="row row-cols-1 row-cols-md-3 g-3 mb-4">
                     <!-- Category Dropdown -->
                     <div>
                         <select name="category" class="form-select" onchange="this.form.submit()">
@@ -116,52 +116,57 @@
                     </div>
                 </form>
 
-         <div class="container mt-4">
-    <?php if (empty($news)): ?>
-        <p>No news articles found.</p>
-    <?php else: ?>
-        <?php foreach ($news as $item): ?>
-            <div class="row mb-4 pb-4 border-bottom bg-light p-3">
-                <div class="col-12 col-md-4">
-                    <a href="<?= base_url('news/view/' . $item['slug']) ?>">
-                        <img src="<?= base_url(htmlspecialchars($item['image'] ?? 'assets/default.jpg')) ?>" class="img-fluid" alt="News Image">
-                    </a>
-                </div>
-                <div class="col-12 col-md-8">
-                    <h5 class="fw-bold">
-                        <a href="<?= base_url('news/view/' . $item['slug']) ?>" class="text-decoration-none text-dark">
-                            <?= htmlspecialchars($item['title'] ?? 'Untitled') ?>
-                        </a>
-                    </h5>
-                    <div class="mb-2 text-muted small">
-                        <i class="bi bi-calendar-event"></i> <?= date('F d, Y', strtotime($item['created_at'] ?? date('Y-m-d'))) ?>
-                        <br>
-                        <br>
-                        <span class="badge bg-dark"><?= htmlspecialchars($item['main_category'] ?? 'Uncategorized') ?></span>
-                        <?php
-                        // Display subcategories (stored in 'category' as comma-separated)
-                        $subcategories = array_map('trim', explode(',', $item['category'] ?? ''));
-                        foreach ($subcategories as $sub):
-                            if ($sub):
-                        ?>
-                            <span class="badge bg-secondary"><?= htmlspecialchars($sub) ?></span>
-                        <?php
-                            endif;
-                        endforeach;
-                        ?>
-                    </div>
-                    <p>
-                        <?= htmlspecialchars(substr(strip_tags($item['content'] ?? ''), 0, 100)) ?>...
-                    </p>
-                </div>
-            </div>
-        <?php endforeach; ?>
-    <?php endif; ?>
+                <div class="container mt-4">
+                    <?php if (empty($news)): ?>
+                        <p>No news articles found.</p>
+                    <?php else: ?>
+                        <?php foreach ($news as $item): ?>
+                            <div class="row mb-4 pb-4 border-bottom bg-light p-3">
+                                <div class="col-12 col-md-4">
+                                    <?php
+                                    $image = $item['image'] ?? 'assets/default.jpg';
+                                    // check if image is an external URL or local path
+                                    $img_src = (preg_match('/^https?:\/\//', $image)) ? $image : base_url($image);
+                                    ?>
+                                    <a href="<?= base_url('news/view/' . $item['slug']) ?>">
+                                        <img src="<?= $img_src ?>" class="img-fluid rounded" alt="News Image">
+                                    </a>
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <h5 class="fw-bold">
+                                        <a href="<?= base_url('news/view/' . $item['slug']) ?>" class="text-decoration-none text-dark">
+                                            <?= htmlspecialchars($item['title'] ?? 'Untitled') ?>
+                                        </a>
+                                    </h5>
+                                    <div class="mb-2 text-muted small">
+                                        <i class="bi bi-calendar-event"></i> <?= date('F d, Y', strtotime($item['created_at'] ?? date('Y-m-d'))) ?>
+                                        <br><br>
+                                        <span class="badge bg-dark"><?= htmlspecialchars($item['main_category'] ?? 'Uncategorized') ?></span>
+                                        <?php
+                                        // Display subcategories (stored in 'category' as comma-separated)
+                                        $subcategories = array_map('trim', explode(',', $item['category'] ?? ''));
+                                        foreach ($subcategories as $sub):
+                                            if ($sub):
+                                        ?>
+                                                <span class="badge bg-secondary"><?= htmlspecialchars($sub) ?></span>
+                                        <?php
+                                            endif;
+                                        endforeach;
+                                        ?>
+                                    </div>
+                                    <p>
+                                        <?= htmlspecialchars(substr(strip_tags($item['content'] ?? ''), 0, 100)) ?>...
+                                    </p>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
 
-    <div class="text-center">
-        <button class="btn btn-primary">Show More <i class="bi bi-arrow-down-circle ms-2"></i></button>
-    </div>
-</div>
+
+                    <div class="text-center">
+                        <button class="btn btn-primary">Show More <i class="bi bi-arrow-down-circle ms-2"></i></button>
+                    </div>
+                </div>
             </div>
 
             <!-- Sidebar Carousel -->
@@ -248,7 +253,7 @@
     <script src="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

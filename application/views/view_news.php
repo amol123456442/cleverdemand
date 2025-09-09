@@ -61,23 +61,39 @@
 
     <!-- Main Content -->
     <div class="container py-4">
-        <div class="row d-flex bgColor justify-content-between p-3">
-            <!-- Title & Meta -->
-            <div class="col-md-5 d-flex align-items-center">
-                <div>
-                    <h2 class="fw-bold"><?= htmlspecialchars($news_item['title'] ?? 'Untitled') ?></h2>
-                    <p class="text-danger"><?= htmlspecialchars($news_item['main_category'] ?? 'Uncategorized') ?></p>
-                    <small>By <?= htmlspecialchars($news_item['provided'] ?? 'Unknown Provider') ?> | 
-                        Date: <?= date('d M Y', strtotime($news_item['created_at'] ?? date('Y-m-d'))) ?> | 
-                        <?= htmlspecialchars($news_item['read_time'] ?? '5 Mins Read') ?></small>
-                </div>
-            </div>
-            <!-- Image -->
-            <div class="col-md-6 text-end">
-                <img src="<?= base_url(htmlspecialchars($news_item['image'] ?? 'assets/default.jpg')) ?>" 
-                     class="img-fluid rounded" alt="News Image">
-            </div>
+<div class="row d-flex bgColor justify-content-between p-3">
+    <!-- Title & Meta -->
+    <div class="col-md-5 d-flex align-items-center">
+        <div>
+            <h2 class="fw-bold"><?= htmlspecialchars($news_item['title'] ?? 'Untitled') ?></h2>
+            <p class="text-danger"><?= htmlspecialchars($news_item['main_category'] ?? 'Uncategorized') ?></p>
+            <small>
+                By <?= htmlspecialchars($news_item['provided'] ?? 'Unknown Provider') ?> | 
+                Date: <?= date('d M Y', strtotime($news_item['created_at'] ?? date('Y-m-d'))) ?> | 
+                <?= htmlspecialchars($news_item['read_time'] ?? '5 Mins Read') ?>
+            </small>
         </div>
+    </div>
+
+<div class="col-md-6 text-end">
+    <?php 
+        $default_image = 'assets/default.jpg';
+        $image = $news_item['image'] ?? '';
+
+        if (!empty($image) && preg_match('/^https?:\/\//', $image)) {
+            $img_src = $image; // external URL
+        } elseif (!empty($image) && file_exists(FCPATH . ltrim($image, '/'))) {
+            $img_src = base_url($image); // local file (handles both Uploads/ and uploads/)
+        } else {
+            $img_src = base_url($default_image); // default
+        }
+    ?>
+    <img src="<?= $img_src ?>" class="img-fluid rounded" alt="News Image" style="max-height:300px; object-fit:cover;">
+</div>
+
+
+</div>
+
 
         <!-- Content Columns -->
         <div class="row mt-5">

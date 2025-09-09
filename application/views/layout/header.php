@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
   <style>
     .navbg {
       background-color: #254D70;
@@ -253,9 +247,7 @@
     }
   </style>
 
-</head>
 
-<body>
   <nav class="navbar navbg navbar-expand-lg py-3 sticky-top">
     <div class="container-fluid d-flex justify-content-between align-items-center">
 
@@ -449,6 +441,4 @@
       }
     });
   </script>
-</body>
 
-</html>
