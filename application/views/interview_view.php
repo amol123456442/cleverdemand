@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
             background-color: rgba(37, 77, 112, 0.2);
             opacity: inherit;
         }
+
         .featured-label {
             background-color: #27548A;
             padding: 5px 10px;
@@ -19,15 +21,18 @@
             margin-bottom: 10px;
             color: white;
         }
+
         .sticky-sidebar {
             position: sticky;
             top: 100px;
             z-index: 10;
         }
+
         .social-icon {
             font-size: 1.5rem;
             color: #000;
         }
+
         .tag-dot {
             display: inline-block;
             width: 10px;
@@ -35,20 +40,29 @@
             border-radius: 50%;
             margin-right: 5px;
         }
+
         /* Smaller tabs */
         .nav-tabs .nav-link {
-            font-size: 0.85rem; /* Smaller font size */
-            padding: 0.4rem 0.8rem; /* Reduced padding */
-            line-height: 1.2; /* Tighter line height */
+            font-size: 0.85rem;
+            /* Smaller font size */
+            padding: 0.4rem 0.8rem;
+            /* Reduced padding */
+            line-height: 1.2;
+            /* Tighter line height */
         }
+
         .nav-tabs .nav-item {
-            margin-bottom: -1px; /* Ensure no extra spacing */
+            margin-bottom: -1px;
+            /* Ensure no extra spacing */
         }
+
         .nav-tabs {
-            border-bottom: 1px solid #dee2e6; /* Keep Bootstrap border */
+            border-bottom: 1px solid #dee2e6;
+            /* Keep Bootstrap border */
         }
     </style>
 </head>
+
 <body>
     <!-- Header Placeholder -->
     <?php $this->load->view('layout/header'); ?>
@@ -72,9 +86,9 @@
                 <div>
                     <h2 class="fw-bold"><?= htmlspecialchars($interview['title'] ?? 'Untitled') ?></h2>
                     <p class="text-danger"><?= htmlspecialchars($interview['main_category'] ?? 'Uncategorized') ?></p>
-                    <small>Featuring: <?= htmlspecialchars($interview['interviewee_name'] ?? 'Unknown') ?>, <?= htmlspecialchars($interview['interviewee_designation'] ?? '') ?> at <?= htmlspecialchars($interview['company_name'] ?? 'Unknown') ?> | 
-                        By <?= htmlspecialchars($interview['provided'] ?? 'Unknown Provider') ?> | 
-                        Date: <?= date('d M Y', strtotime($interview['created_at'] ?? date('Y-m-d'))) ?> | 
+                    <small>Featuring: <?= htmlspecialchars($interview['interviewee_name'] ?? 'Unknown') ?>, <?= htmlspecialchars($interview['interviewee_designation'] ?? '') ?> at <?= htmlspecialchars($interview['company_name'] ?? 'Unknown') ?> |
+                        By <?= htmlspecialchars($interview['provided'] ?? 'Unknown Provider') ?> |
+                        Date: <?= date('d M Y', strtotime($interview['created_at'] ?? date('Y-m-d'))) ?> |
                         5 Mins Read</small>
                 </div>
             </div>
@@ -143,12 +157,12 @@
                     $i = 0;
                     foreach ($subcategories as $sub):
                         if ($sub):
-                            ?>
+                    ?>
                             <div class="d-flex align-items-center border rounded-pill px-2 py-1">
                                 <span class="tag-dot" style="background-color: <?= $colors[$i % count($colors)] ?>;"></span>
                                 <?= htmlspecialchars($sub) ?>
                             </div>
-                            <?php
+                    <?php
                             $i++;
                         endif;
                     endforeach;
@@ -157,25 +171,25 @@
             </div>
 
             <!-- Right Column (Tabs for Bio and Description) -->
-            <div class="col-md-3">
+            <div class="col-md-3 border rounded px-3 pt-1">
                 <div class="sticky-sidebar">
                     <div class="text-start mb-3">
                         <span class="featured-label fw-bold">About</span>
                     </div>
                     <ul class="nav nav-tabs d-flex" id="interviewInfoTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="bio-tab" data-bs-toggle="tab" data-bs-target="#bio" type="button" role="tab" aria-controls="bio" aria-selected="true">Interviewee Bio</button>
+                            <button class="nav-link active text-dark" id="bio-tab" data-bs-toggle="tab" data-bs-target="#bio" type="button" role="tab" aria-controls="bio" aria-selected="true">Interview Bio</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="company-tab" data-bs-toggle="tab" data-bs-target="#company" type="button" role="tab" aria-controls="company" aria-selected="false">Company Description</button>
+                            <button class="nav-link text-dark" id="company-tab" data-bs-toggle="tab" data-bs-target="#company" type="button" role="tab" aria-controls="company" aria-selected="false">Company Description</button>
                         </li>
                     </ul>
                     <div class="tab-content" id="interviewInfoTabContent">
                         <div class="tab-pane fade show active" id="bio" role="tabpanel" aria-labelledby="bio-tab">
-                            <p class="mt-3"><?= htmlspecialchars($interview['interviewee_bio'] ?? 'No bio available.') ?></p>
+                            <p class="mt-3"><?= strip_tags($interview['interviewee_bio'] ?? 'No bio available.') ?></p>
                         </div>
                         <div class="tab-pane fade" id="company" role="tabpanel" aria-labelledby="company-tab">
-                            <p class="mt-3"><?= htmlspecialchars($interview['company_description'] ?? 'No company description available.') ?></p>
+                            <p class="mt-3"><?= strip_tags($interview['company_description'] ?? 'No company description available.') ?></p>
                         </div>
                     </div>
                 </div>
@@ -197,4 +211,5 @@
         }
     </script>
 </body>
+
 </html>
