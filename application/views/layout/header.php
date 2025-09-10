@@ -385,7 +385,7 @@
                 <span class="trending-badge">Trending</span></a>
             </li>
             <li class="nav-item mx-3">
-              <a class="nav-link text-light" href="<?php echo base_url('createpressrelease'); ?>">Press Release</a>
+              <a class="nav-link text-light" href="<?php echo base_url('pressrelease'); ?>">Press Release</a>
             </li>
             <li class="nav-item mx-3">
               <a class="nav-link text-light" href="<?php echo base_url('news'); ?>">Article</a>

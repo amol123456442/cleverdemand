@@ -61,38 +61,38 @@
 
     <!-- Main Content -->
     <div class="container py-4">
-<div class="row d-flex bgColor justify-content-between p-3">
-    <!-- Title & Meta -->
-    <div class="col-md-5 d-flex align-items-center">
-        <div>
-            <h2 class="fw-bold"><?= htmlspecialchars($press_release['title'] ?? 'Untitled') ?></h2>
-            <p class="text-danger"><?= htmlspecialchars($press_release['main_category'] ?? 'Uncategorized') ?></p>
-            <small>
-                By <?= htmlspecialchars($press_release['provided'] ?? 'Unknown Provider') ?> | 
-                Date: <?= date('d M Y', strtotime($press_release['created_at'] ?? date('Y-m-d'))) ?> | 
-                <?= htmlspecialchars($press_release['read_time'] ?? '5 Mins Read') ?>
-            </small>
+        <div class="row d-flex bgColor justify-content-between p-3">
+            <!-- Title & Meta -->
+            <div class="col-md-5 d-flex align-items-center">
+                <div>
+                    <h2 class="fw-bold"><?= htmlspecialchars($press_release['title'] ?? 'Untitled') ?></h2>
+                    <p class="text-danger"><?= htmlspecialchars($press_release['main_category'] ?? 'Uncategorized') ?></p>
+                    <small>
+                        By <?= htmlspecialchars($press_release['provided'] ?? 'Unknown Provider') ?> |
+                        Date: <?= date('d M Y', strtotime($press_release['created_at'] ?? date('Y-m-d'))) ?> |
+                        <?= htmlspecialchars($press_release['read_time'] ?? '5 Mins Read') ?>
+                    </small>
+                </div>
+            </div>
+
+            <div class="col-md-6 text-end">
+                <?php
+                $default_image = 'assets/default.jpg';
+                $image = $press_release['image'] ?? '';
+
+                if (!empty($image) && preg_match('/^https?:\/\//', $image)) {
+                    $img_src = $image; // external URL
+                } elseif (!empty($image) && file_exists(FCPATH . ltrim($image, '/'))) {
+                    $img_src = base_url($image); // local file (handles both Uploads/ and uploads/)
+                } else {
+                    $img_src = base_url($default_image); // default
+                }
+                ?>
+                <img src="<?= $img_src ?>" class="img-fluid rounded" alt="News Image" style="max-height:300px; object-fit:cover;">
+            </div>
+
+
         </div>
-    </div>
-
-<div class="col-md-6 text-end">
-    <?php 
-        $default_image = 'assets/default.jpg';
-        $image = $press_release['image'] ?? '';
-
-        if (!empty($image) && preg_match('/^https?:\/\//', $image)) {
-            $img_src = $image; // external URL
-        } elseif (!empty($image) && file_exists(FCPATH . ltrim($image, '/'))) {
-            $img_src = base_url($image); // local file (handles both Uploads/ and uploads/)
-        } else {
-            $img_src = base_url($default_image); // default
-        }
-    ?>
-    <img src="<?= $img_src ?>" class="img-fluid rounded" alt="News Image" style="max-height:300px; object-fit:cover;">
-</div>
-
-
-</div>
 
 
         <!-- Content Columns -->
@@ -163,10 +163,10 @@
                     foreach ($subcategories as $sub):
                         if ($sub):
                     ?>
-                        <div class="d-flex align-items-center border rounded-pill px-2 py-1">
-                            <span class="tag-dot" style="background-color: <?= $colors[$i % count($colors)] ?>;"></span>
-                            <?= htmlspecialchars($sub) ?>
-                        </div>
+                            <div class="d-flex align-items-center border rounded-pill px-2 py-1">
+                                <span class="tag-dot" style="background-color: <?= $colors[$i % count($colors)] ?>;"></span>
+                                <?= htmlspecialchars($sub) ?>
+                            </div>
                     <?php
                             $i++;
                         endif;
@@ -181,20 +181,20 @@
                     <div class="text-start mb-3">
                         <span class="featured-label fw-bold">Relevant articles</span>
                     </div>
-                   
-                        <div class="card mb-3">
-                        
-                            <div class="card-body">
-                                <h6 class="card-title">
-                                    <a href="" class="text-decoration-none">
-                                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, quaerat?
-                                    </a>
-                                </h6>
-                             
-                            </div>
+
+                    <div class="card mb-3">
+
+                        <div class="card-body">
+                            <h6 class="card-title">
+                                <a href="" class="text-decoration-none">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, quaerat?
+                                </a>
+                            </h6>
+
                         </div>
-                 
-                    
+                    </div>
+
+
                 </div>
             </div>
         </div>
