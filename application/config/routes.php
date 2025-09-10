@@ -88,6 +88,24 @@ $route['allpressreleases'] = 'CreatePressReleaseController/allpressreleases';
 $route['pressrelease'] = 'pressrelease/index';
 $route['pressrelease/(:any)'] = 'pressrelease/view/$1';
 
+// Main page -> maps to index()
+$route['createarticles'] = 'CreateArticlesController/index';
+
+// Store new article
+$route['createarticles/store'] = 'CreateArticlesController/store';
+
+// Update
+$route['createarticles/update/(:num)'] = 'CreateArticlesController/update/$1';
+
+// Delete
+$route['createarticles/delete/(:num)'] = 'CreateArticlesController/delete/$1';
+
+// All articles
+$route['allarticles'] = 'CreateArticlesController/allpressreleases';
+
+
+$route['articles'] = 'articles/index';
+$route['articles/(:any)'] = 'articles/view/$1';
 
 
 // Interviews
