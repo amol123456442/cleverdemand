@@ -107,6 +107,8 @@ $route['allarticles'] = 'CreateArticlesController/allpressreleases';
 $route['articles'] = 'articles/index';
 $route['articles/(:any)'] = 'articles/view/$1';
 
+$route['resources'] = 'resources/index';
+
 
 // Interviews
 $route['interviews/create'] = 'CreateInterviewController/index';

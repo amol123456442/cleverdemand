@@ -388,10 +388,10 @@
               <a class="nav-link text-light" href="<?php echo base_url('pressrelease'); ?>">Press Release</a>
             </li>
             <li class="nav-item mx-3">
-              <a class="nav-link text-light" href="<?php echo base_url('news'); ?>">Article</a>
+              <a class="nav-link text-light" href="<?php echo base_url('articles'); ?>">Article</a>
             </li>
             <li class="nav-item mx-3">
-              <a class="nav-link text-light">Resources</a>
+              <a class="nav-link text-light" href="<?php echo base_url('resources'); ?>">Resources</a>
             </li>
           </ul>
 

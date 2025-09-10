@@ -1,71 +1,54 @@
-
 <footer class="bg-dark text-white py-5">
   <div class="container">
     <div class="row g-4">
-      <!-- Logo and Social Icons -->
-      <div class="col-12 col-md-6 col-lg-3">
-        <h2 class="display-5">Logo</h2>
-        <br>
-        <div class="d-flex gap-3">
-          <a href="#" class="text-white social-icon">
-            <i class="bi bi-facebook"></i>
-          </a>
-          <a href="#" class="text-white social-icon">
-            <i class="bi bi-twitter-x"></i>
-          </a>
-          <a href="#" class="text-white social-icon">
-            <i class="bi bi-linkedin"></i>
-          </a>
-          <a href="#" class="text-white social-icon">
-            <i class="bi bi-youtube"></i>
-          </a>
+      
+      <!-- About Us -->
+      <div class="col-12 col-md-4">
+        <h6 class="fw-bold mb-3 text-danger">
+          <i class="bi bi-square-fill me-2"></i>ABOUT US
+        </h6>
+        <div class="mb-3">
+          <!-- <img src="assets/logo.png" alt="Logo" style="max-width: 120px;"> -->
+           <h1>Logo</h1>
         </div>
+        <p class="small text-white-50">
+          Propspect Presice empowers B2B technology decision-makers with the latest industry trends, 
+          deep insights, leadership perspectives and actionable intelligence to drive both 
+          organizational and professional milestones—and thrive on the tech pulse.
+        </p>
       </div>
 
-      <!-- Explore -->
-      <div class="col-12 col-sm-6 col-md-6 col-lg-2">
-        <h5 class="mb-3">EXPLORE</h5>
+      <!-- Quick Links -->
+      <div class="col-12 col-md-4">
+        <h6 class="fw-bold mb-3 text-danger">
+          <i class="bi bi-square-fill me-2"></i>QUICK LINKS
+        </h6>
         <ul class="list-unstyled">
-          <li class="mb-2"><a href="#" class="text-white text-decoration-none">About Us</a></li>
+          <li class="mb-2"><a href="#" class="text-white text-decoration-none">Home</a></li>
+          <li class="mb-2"><a href="#" class="text-white text-decoration-none">About</a></li>
           <li class="mb-2"><a href="#" class="text-white text-decoration-none">Contact Us</a></li>
-          <li class="mb-2"><a href="#" class="text-white text-decoration-none">Newsletter</a></li>
-          <li class="mb-2"><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Cookie Policy</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Privacy</a></li>
         </ul>
       </div>
 
-      <!-- Reach Our Audience -->
-      <div class="col-12 col-sm-6 col-md-6 col-lg-2">
-        <h5 class="mb-3">REACH OUR AUDIENCE</h5>
-        <ul class="list-unstyled">
-          <li class="mb-2"><a href="#" class="text-white text-decoration-none">Advertise</a></li>
-          <li class="mb-2"><a href="#" class="text-white text-decoration-none">Post a Press Release</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Contact Us</a></li>
-        </ul>
+      <!-- Connect With Us -->
+      <div class="col-12 col-md-4">
+        <h6 class="fw-bold mb-3 text-danger">
+          <i class="bi bi-square-fill me-2"></i>CONNECT WITH US
+        </h6>
+        <div class="d-flex gap-3 mb-3">
+          <a href="#" class="text-white social-icon"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="text-white social-icon"><i class="bi bi-twitter-x"></i></a>
+        </div>
+        <p class="small">
+          <strong>Email Us:</strong> <a href="mailto:contact@Propspect Presice.com" class="text-white text-decoration-none">contact@Propspect Presice.com</a>
+        </p>
       </div>
 
-      <!-- Categories -->
-      <div class="col-12 col-sm-6 col-md-6 col-lg-2">
-        <h5 class="mb-3">CATEGORIES</h5>
-        <ul class="list-unstyled">
-          <li class="mb-2"><a href="#" class="text-white text-decoration-none">ALL CATEGORIES</a></li>
-          <li class="mb-2"><a href="#" class="text-white text-decoration-none">IoT News</a></li>
-          <li class="mb-2"><a href="#" class="text-white text-decoration-none">AI News</a></li>
-          <li class="mb-2"><a href="#" class="text-white text-decoration-none">Edge Computing News</a></li>
-          <li class="mb-2"><a href="#" class="text-white text-decoration-none">MarketingTech</a></li>
-        </ul>
-      </div>
-
-      <!-- Other Publications -->
-      <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-        <h5 class="mb-3">OTHER PUBLICATIONS</h5>
-        <ul class="list-unstyled">
-          <li class="mb-2"><a href="#" class="text-white text-decoration-none">EXPLORE ALL</a></li>
-          <li class="mb-2"><a href="#" class="text-white text-decoration-none">Developer</a></li>
-          <li class="mb-2"><a href="#" class="text-white text-decoration-none">TechForge</a></li>
-          <li><a href="#" class="text-white text-decoration-none">TechWire Asia</a></li>
-        </ul>
-      </div>
+    </div>
+    <hr class="border-secondary mt-4">
+    <div class="text-center small text-white-50">
+      © 2025 Propspect Presice. All Rights Reserved
     </div>
   </div>
 </footer>
@@ -80,18 +63,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #333;
     transition: transform 0.3s ease;
   }
-  
   .social-icon:hover {
     transform: scale(1.1);
   }
-  
-  .social-icon:nth-child(1) { background-color: #3b5998; }
-  .social-icon:nth-child(2) { background-color: #000000; }
-  .social-icon:nth-child(3) { background-color: #0077b5; }
-  .social-icon:nth-child(4) { background-color: #ff0000; }
 </style>
-
-
-
