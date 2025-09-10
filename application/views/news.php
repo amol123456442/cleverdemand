@@ -27,6 +27,20 @@
             margin-bottom: 10px;
             color: white;
         }
+
+        .btn-custom {
+            background: #254D70;
+            color: #fff;
+            border-radius: 25px;
+            padding: 6px 18px;
+            font-size: 14px;
+            transition: 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background: #1c3b58;
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -45,15 +59,20 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-12">
-                <h1 class="fw-bold text-info">Information Technology</h1>
+                <h1 class="fw-bold" style="color: #264D70;">Information Technology</h1>
                 <hr class="w-50">
-                <p>Information technology is the core of today’s businesses. Read insights on <br> transforming
-                    information technology from a service function to a key driver of business growth.</p>
-                <a href="#" class="fs-4" style="text-decoration: underline; color: black; font-weight: bold;">Discover
-                    how Forrester supports IT leaders.</a>
+                <p>
+                    Technology is no longer just a support system—it’s the foundation of innovation and growth.
+                    Explore the latest trends, strategies, and solutions that help organizations turn IT into a
+                    competitive advantage.
+                </p>
+                <a href="#" class="fs-4" style="text-decoration: underline; color: black; font-weight: bold;">
+                    Learn how Forrester empowers IT leaders worldwide.
+                </a>
             </div>
         </div>
     </div>
+
 
     <div class="container mb-4 mt-4">
         <div class="row">
@@ -162,9 +181,10 @@
                         <?php endforeach; ?>
                     <?php endif; ?>
 
-
-                    <div class="text-center">
-                        <button class="btn btn-primary">Show More <i class="bi bi-arrow-down-circle ms-2"></i></button>
+                    <div class="col-lg-12 text-center mt-4">
+                        <a href="" class="btn btn-custom my-2">
+                            Show More <i class="bi bi-sort-numeric-down-alt ms-1"></i>
+                        </a>
                     </div>
                 </div>
             </div>
