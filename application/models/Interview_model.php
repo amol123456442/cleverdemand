@@ -1,14 +1,17 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Interview_model extends CI_Model {
+class Interview_model extends CI_Model
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->database();
     }
 
-    public function get_interviews($category = null, $subcategory = null, $search = null) {
+    public function get_interviews($category = null, $subcategory = null, $search = null)
+    {
         $this->db->select('*');
         $this->db->from('interviews');
 
@@ -33,7 +36,8 @@ class Interview_model extends CI_Model {
         return $this->db->get()->result_array();
     }
 
-    public function get_interview_by_slug($slug) {
+    public function get_interview_by_slug($slug)
+    {
         $this->db->select('*');
         $this->db->from('interviews');
         $this->db->where('slug', $slug);
@@ -41,18 +45,29 @@ class Interview_model extends CI_Model {
     }
 
     // Additional methods for CreateInterviewController
-    public function insert_interview($data) {
+    public function insert_interview($data)
+    {
         return $this->db->insert('interviews', $data);
     }
 
-    public function get_interview($id) {
+    public function get_interview($id)
+    {
         $this->db->where('id', $id);
         return $this->db->get('interviews')->row_array();
     }
 
-    public function update_interview($id, $data) {
+    public function update_interview($id, $data)
+    {
         $this->db->where('id', $id);
         return $this->db->update('interviews', $data);
     }
+
+    public function get_latest_interviews($limit = 3)
+    {
+        $this->db->select('*');
+        $this->db->from('interviews');
+        $this->db->order_by('created_at', 'DESC');
+        $this->db->limit($limit);
+        return $this->db->get()->result_array();
+    }
 }
-?>

@@ -39,12 +39,12 @@ class Auth extends CI_Controller {
                 $user = $this->User_model->validate_user($username, $password);
 
                 if ($user) {
-                    $session_data = [
-                        'user_id' => $user['id'],
+                    $session_data = [   
                         'username' => $user['username'],
+                        'user_id' => $user['id'],
                         'role' => $user['role'],
-                        'logged_in' => TRUE
                     ];
+                    'logged_in' => TRUE
                     $this->session->set_userdata($session_data);
                     $this->session->set_flashdata('success', 'Login successful!');
                     log_message('debug', 'User ' . $username . ' logged in successfully.');
