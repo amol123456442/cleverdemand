@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Press Release</title>
+    <title>Create Blog</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tiny.cloud/1/53z14n57f346y9n3usw75o1aqkqdxcwnajjqau89u40fkq62/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
@@ -322,7 +322,7 @@
                     </div>
                     <div class="d-grid mt-4">
                         <button type="submit" class="btn btn-primary btn-lg">
-                            <i class="fas fa-save me-2"></i><?= isset($post) ? "Update Press Release" : "Create Press Release" ?>
+                            <i class="fas fa-save me-2"></i><?= isset($post) ? "Update Blog" : "Create Blog" ?>
                         </button>
                     </div>
                 </form>

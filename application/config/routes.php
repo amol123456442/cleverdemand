@@ -122,3 +122,9 @@ $route['privacy-policy'] = 'PrivacyPolicy/index';
 // UNSUBSCRIBE
 $route['unsubscribe'] = 'unsubscribe/index';
 $route['unsubscribe/remove'] = 'unsubscribe/remove';
+
+// dashboard
+$route['dashboard'] = 'dashboard/index';
+
+// main dashbaord
+$route['main-dashboard'] = 'MainDashboard/index';

@@ -15,7 +15,7 @@ class Auth extends CI_Controller
     public function login()
     {
         if ($this->session->userdata('logged_in')) {
-            redirect('createpost'); // Redirect to createpost if already logged in
+            redirect('dashboard'); // Redirect to createpost if already logged in
         }
         $this->load->view('auth/login');
     }
@@ -23,7 +23,7 @@ class Auth extends CI_Controller
     public function register()
     {
         if ($this->session->userdata('logged_in')) {
-            redirect('createpost'); // Redirect to createpost if already logged in
+            redirect('dashboard'); // Redirect to createpost if already logged in
         }
         $this->load->view('auth/register');
     }
@@ -51,10 +51,12 @@ class Auth extends CI_Controller
                         'logged_in'  => TRUE
                     ];
                     $this->session->set_userdata($session_data);
-                    $this->session->set_userdata($session_data);
+
                     $this->session->set_flashdata('success', 'Login successful!');
                     log_message('debug', 'User ' . $username . ' logged in successfully.');
-                    redirect('createpost'); // Redirect to createpost after successful login
+
+                    redirect('dashboard'); // ✅ pehle createpost tha
+
                 } else {
                     $this->session->set_flashdata('error', 'Invalid username or password.');
                     log_message('error', 'Failed login attempt for username: ' . $username);
