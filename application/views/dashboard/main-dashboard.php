@@ -21,7 +21,7 @@
         <div class="card-body d-flex justify-content-between align-items-center">
           <div>
             <h6 class="text-muted">Total News</h6>
-            <h3 class="mb-0">120</h3>
+           <h3 class="mb-0"><?= $counts['news_count']; ?></h3>
           </div>
           <div class="icon bg-primary text-white rounded-circle p-3">
             <i class="fas fa-newspaper fa-lg"></i>
@@ -35,7 +35,7 @@
         <div class="card-body d-flex justify-content-between align-items-center">
           <div>
             <h6 class="text-muted">Total Press Release</h6>
-            <h3 class="mb-0">45</h3>
+          <h3 class="mb-0"><?= $counts['press_count']; ?></h3>
           </div>
           <div class="icon bg-success text-white rounded-circle p-3">
             <i class="fas fa-bullhorn fa-lg"></i>
@@ -49,7 +49,7 @@
         <div class="card-body d-flex justify-content-between align-items-center">
           <div>
             <h6 class="text-muted">Total Interviews</h6>
-            <h3 class="mb-0">30</h3>
+         <h3 class="mb-0"><?= $counts['interview_count']; ?></h3>
           </div>
           <div class="icon bg-warning text-white rounded-circle p-3">
             <i class="fas fa-user-tie fa-lg"></i>

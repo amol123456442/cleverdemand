@@ -10,11 +10,17 @@ class MainDashboard extends CI_Controller
         if (!$this->session->userdata('logged_in')) {
             redirect('auth/login');
         }
+
+        // Model load
+        $this->load->model('Dashboard_model');
     }
 
     public function index()
     {
-        // dashboard view load karo
-        $this->load->view('dashboard/main-dashboard');
+        // Get counts
+        $data['counts'] = $this->Dashboard_model->get_counts();
+
+        // Load dashboard view with counts
+        $this->load->view('dashboard/main-dashboard', $data);
     }
 }
