@@ -34,7 +34,7 @@
       <div class="card shadow-sm border-0">
         <div class="card-body d-flex justify-content-between align-items-center">
           <div>
-            <h6 class="text-muted">Total Press Release</h6>
+            <h6 class="text-muted">Total Blogs</h6>
           <h3 class="mb-0"><?= $counts['press_count']; ?></h3>
           </div>
           <div class="icon bg-success text-white rounded-circle p-3">

@@ -204,7 +204,7 @@
       <div class="container my-5">
         <div class="card">
             <div class="card-header">
-                <h4 class="text-center"><?= isset($post) ? "Edit Press Release" : "Create Press Release" ?></h4>
+                <h4 class="text-center"><?= isset($post) ? "Edit Blog" : "Create Blog" ?></h4>
             </div>
             <div class="card-body">
                 <div class="mb-3">

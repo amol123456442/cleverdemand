@@ -55,17 +55,17 @@
                     <span class="links_name">Log-Out</span>
                 </a>
             </li>
-            <li class="profile">
-                <div class="profile-details">
-                    <i class="fas fa-user-circle fa-2x me-2" style="color: #e9e0e0ff;"></i>
-                    <div class="name_job">
-                        <div class="name">Amol Patil</div>
-                        <div class="job">Web Developer</div>
-                    </div>
-                </div>
-                <i class="fas fa-sign-out-alt text-light" id="log_out" title="Logout"
-                    style="color: #f0e2e2ff;"></i>
-            </li>
+    <li class="profile">
+    <div class="profile-details">
+        <i class="fas fa-user-circle fa-2x me-2" style="color: #e9e0e0ff;"></i>
+        <div class="name_job">
+            <div class="name"><?= $this->session->userdata('username'); ?></div>
+            <div class="job"><?= ucfirst($this->session->userdata('role')); ?></div>
+        </div>
+    </div>
+    <i class="fas fa-sign-out-alt text-light" id="log_out" title="Logout"
+        style="color: #f0e2e2ff;"></i>
+</li>
         </ul>
     </div>
 
@@ -206,7 +206,7 @@
 
         .sidebar li.profile {
             position: fixed;
-            height: 60px;
+            /* height: 60px; */
             width: 78px;
             left: 0;
             bottom: -8px;
