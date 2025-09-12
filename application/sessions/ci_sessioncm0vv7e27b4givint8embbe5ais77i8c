@@ -1,0 +1,45 @@
+__ci_last_regenerate|i:1757623723;username|s:4:"1391";user_id|s:1:"1";role|s:4:"user";logged_in|b:1;error|s:1703:"220 smtp.gmail.com ESMTP d2e1a72fcca58-77607c45b2csm2937248b3a.89 - gsmtp
+<br /><pre>hello: 250-smtp.gmail.com at your service, [114.143.198.169]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+</pre>Failed to authenticate password. Error: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-77607c45b2csm2937248b3a.89 - gsmtp
+<br />Unable to send email using PHP SMTP. Your server might not be configured to send mail using this method.<br /><pre>Date: Thu, 11 Sep 2025 22:18:55 +0200
+From: &quot;Tech News&quot; &lt;your_email@gmail.com&gt;
+Return-Path: &lt;your_email@gmail.com&gt;
+To: amol@test.com
+Subject: =?UTF-8?Q?Subscription=20Confirmation?=
+Reply-To: &lt;your_email@gmail.com&gt;
+User-Agent: CodeIgniter
+X-Sender: your_email@gmail.com
+X-Mailer: CodeIgniter
+X-Priority: 3 (Normal)
+Message-ID: &lt;68c32eafe1fa9@gmail.com&gt;
+Mime-Version: 1.0
+
+
+Content-Type: multipart/alternative; boundary=&quot;B_ALT_68c32eafe1fd1&quot;
+
+This is a multi-part message in MIME format.
+Your email application may not support this format.
+
+--B_ALT_68c32eafe1fd1
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Thank you for subscribing!You’ll now receive the latest tech updates.
+
+
+--B_ALT_68c32eafe1fd1
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+=3Ch3=3EThank you for subscribing=21=3C/h3=3E=3Cp=3EYou=E2=80=99ll now rece=
+ive the latest tech updates.=3C/p=3E
+
+--B_ALT_68c32eafe1fd1--</pre>";__ci_vars|a:1:{s:5:"error";s:3:"old";}

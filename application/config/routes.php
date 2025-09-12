@@ -115,3 +115,10 @@ $route['interviews/create'] = 'CreateInterviewController/index';
 $route['interviews/store'] = 'CreateInterviewController/store';
 $route['interviews/edit/(:num)'] = 'CreateInterviewController/edit/$1';
 $route['interviews/update/(:num)'] = 'CreateInterviewController/update/$1';
+
+// Privacy policy
+$route['privacy-policy'] = 'PrivacyPolicy/index';
+
+// UNSUBSCRIBE
+$route['unsubscribe'] = 'unsubscribe/index';
+$route['unsubscribe/remove'] = 'unsubscribe/remove';

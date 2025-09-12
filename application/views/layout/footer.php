@@ -27,7 +27,7 @@
           <li class="mb-2"><a href="#" class="text-white text-decoration-none">Home</a></li>
           <li class="mb-2"><a href="#" class="text-white text-decoration-none">About</a></li>
           <li class="mb-2"><a href="#" class="text-white text-decoration-none">Contact Us</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Privacy</a></li>
+          <li><a href="<?php echo base_url('privacy-policy'); ?>"class="text-white text-decoration-none">Privacy</a></li>
         </ul>
       </div>
 

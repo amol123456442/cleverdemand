@@ -9,6 +9,73 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 	<title>Home</title>
 	<base href="<?= base_url() ?>">
+
+
+
+	<style>
+		/* Tabs style */
+		.nav-tabs .nav-link {
+			border: none;
+			color: #555;
+			transition: all 0.3s ease;
+		}
+
+		.nav-tabs .nav-link.active {
+			border-bottom: 3px solid #264D70;
+			color: #264D70;
+			font-weight: 600;
+		}
+
+		.nav-tabs .nav-link:hover {
+			color: #264D70;
+		}
+
+		/* Item hover */
+		.insight-item {
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.insight-item:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 0.8rem 1.2rem rgba(0, 0, 0, 0.1);
+		}
+
+		/* Title hover */
+		.title-link:hover {
+			color: #264D70;
+		}
+
+		/* Badge */
+		.badge.bg-dark {
+			background-color: #264D70 !important;
+			font-size: 0.7rem;
+			border-radius: 20px;
+		}
+	</style>
+
+	<style>
+		/* Card hover */
+		.interview-card {
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.interview-card:hover {
+			transform: translateY(-6px);
+			box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.15);
+		}
+
+		/* Title hover active color */
+		.title-link:hover {
+			color: #264D70;
+		}
+
+		/* Badge style */
+		.badge.bg-dark {
+			background-color: #264D70 !important;
+			font-size: 0.75rem;
+			border-radius: 20px;
+		}
+	</style>
 	<style>
 		.featured-label {
 			background-color: #27548A;
@@ -46,6 +113,20 @@
 			color: white !important;
 			background-color: #27548A;
 		}
+
+		.btn-custom {
+			background: #254D70;
+			color: #fff;
+			border-radius: 25px;
+			padding: 6px 18px;
+			font-size: 14px;
+			transition: 0.3s ease;
+		}
+
+		.btn-custom:hover {
+			background: #1c3b58;
+			color: #fff;
+		}
 	</style>
 </head>
 
@@ -65,8 +146,8 @@
 									</div>
 									<a href="<?= site_url('news/view/' . $news['slug']); ?>">
 										<img src="<?= $news['image'] ?? 'https://via.placeholder.com/600x387'; ?>"
-											class="img-fluid rounded w-100 object-fit-cover" alt="Featured Image"
-											style="height: 300px; object-fit: cover;">
+											class="img-fluid  w-100 object-fit-cover" alt="Featured Image"
+											style="height: 350px; ">
 									</a>
 									<div class="text-start mt-3">
 										<div class="d-flex justify-content-between">
@@ -91,72 +172,45 @@
 					</div>
 				</div>
 			</div>
-
-
 			<!-- Sidebar -->
 			<div class="col-12 col-md-4 col-lg-3">
 				<div class="text-start mb-3">
-					<span class="featured-label fw-bold">Popular</span>
+					<span class="featured-label fw-bold">Resources</span>
 				</div>
-
 				<div id="popularCarousel" class="carousel slide" data-bs-ride="carousel">
 					<div class="carousel-inner">
 
 						<div class="carousel-item active">
 							<div class="card shadow-sm border-0 mb-3">
-								<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvrQDevxLylxtjB6kG5bRLqoJ8m4ZxjKc7GQ&s" class="card-img-top" style="height:150px; object-fit:cover;" alt="News 1">
-								<div class="card-body p-2">
-									<p class="text-muted small mb-1">Technology</p>
-									<h6 class="card-title mb-0">
-										<a href="#" class="text-dark text-decoration-none">Xionomics: Dems chip breakthrough</a>
-									</h6>
-								</div>
+								<img src="https://images.unsplash.com/photo-1593696954577-ab3d39317b97?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGZyZWUlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D"
+									class=""
+									alt="News 1" style="height: 350px;">
 							</div>
 						</div>
 
 						<div class="carousel-item">
 							<div class="card shadow-sm border-0 mb-3">
-								<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvrQDevxLylxtjB6kG5bRLqoJ8m4ZxjKc7GQ&s" class="card-img-top" style="height:150px; object-fit:cover;" alt="News 2">
-								<div class="card-body p-2">
-									<p class="text-muted small mb-1">Data Centers</p>
-									<h6 class="card-title mb-0">
-										<a href="#" class="text-dark text-decoration-none">Where to go when a library's down</a>
-									</h6>
-								</div>
+								<img src="https://images.pexels.com/photos/3194519/pexels-photo-3194519.jpeg"
+									class=""
+									alt="News 2" style="height: 350px;">
 							</div>
 						</div>
 
 						<div class="carousel-item">
 							<div class="card shadow-sm border-0 mb-3">
-								<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvrQDevxLylxtjB6kG5bRLqoJ8m4ZxjKc7GQ&s" class="card-img-top" style="height:150px; object-fit:cover;" alt="News 3">
-								<div class="card-body p-2">
-									<p class="text-muted small mb-1">Latest</p>
-									<h6 class="card-title mb-0">
-										<a href="#" class="text-dark text-decoration-none">When will the AI bubble burst?</a>
-									</h6>
-								</div>
+								<img src="https://images.pexels.com/photos/1111316/pexels-photo-1111316.jpeg"
+									class=""
+									alt="News 3" style="height: 350px;">
 							</div>
 						</div>
 
 					</div>
-
-					<!-- Carousel Controls -->
-					<button class="carousel-control-prev" type="button" data-bs-target="#popularCarousel" data-bs-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Previous</span>
-					</button>
-					<button class="carousel-control-next" type="button" data-bs-target="#popularCarousel" data-bs-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Next</span>
-					</button>
-
 				</div>
-
-				<a href="#" class="btn btn-primary w-100 mt-3">See All</a>
 			</div>
 
+
 		</div>
-		<div class="row g-3 g-md-4 mt-3 mt-md-4">
+		<div class="row g-3 g-md-4 mt-3 mt-md-2">
 			<div class="col-12">
 				<span class="featured-label fw-bold">Latest News</span>
 			</div>
@@ -164,19 +218,26 @@
 			<?php if (!empty($latest_news)): ?>
 				<?php foreach ($latest_news as $news): ?>
 					<div class="col-12 col-sm-6 col-md-6 col-lg-3">
-						<div class="card rounded-0 h-100">
+						<div class="card rounded-0 h-100" style="background-color: #EEEEEE;">
 							<a href="<?= site_url('news/view/' . $news['slug']); ?>">
 								<img src="<?= $news['image'] ?? 'https://dummyimage.com/600x400/000/fff'; ?>"
-									class="img-fluid card-img-top object-fit-cover"
+									class="img-fluid object-fit-cover"
 									alt="<?= $news['title']; ?>"
 									style="aspect-ratio: 3/2; height: 180px;">
 							</a>
-							<div class="card-body p-3">
-								<div class="d-flex justify-content-between">
-									<p class="category-label text-muted small mb-1"><?= $news['main_category']; ?></p>
-									<p class="text-muted small mb-2"><?= date("F j, Y", strtotime($news['created_at'])); ?></p>
+							<div class="card-body p-3 d-flex flex-column">
+								<div>
+									<div class="d-flex justify-content-between">
+										<p class="badge bg-dark text-white px-3 py-1">
+											<?= $news['main_category']; ?>
+										</p>
+										<p class="text-muted small mb-2">
+											<?= date("F j, Y", strtotime($news['created_at'])); ?>
+										</p>
+									</div>
 								</div>
-								<h5 class="card-title fs-6 fw-semibold">
+								<!-- Title pushed to bottom -->
+								<h5 class="card-title fs-6 fw-semibold mt-auto">
 									<a href="<?= site_url('news/view/' . $news['slug']); ?>" class="text-decoration-none text-dark">
 										<?= $news['title']; ?>
 									</a>
@@ -194,29 +255,49 @@
 			<div class="col-12">
 				<span class="featured-label fw-bold">Interviews</span>
 			</div>
-			<div class="col-12">
-				<div class="row">
+			<div class="col-lg-9">
+				<div class="row g-4">
 					<?php if (!empty($latest_interviews)): ?>
 						<?php foreach ($latest_interviews as $interview): ?>
-							<div class="col-12 col-md-4 mb-3 mb-md-0">
-								<div class="card rounded-0 shadow-sm border-1 h-100">
-									<a href="<?= base_url('interviews/view/' . $interview['slug']) ?>">
-										<img src="<?= base_url(htmlspecialchars($interview['image'] ?? 'assets/default.jpg')) ?>"
-											class="img-fluid w-100"
-											alt="<?= htmlspecialchars($interview['title']) ?>"
-											style=" object-fit: cover;">
-									</a>
-									<div class="d-flex justify-content-between mt-3 mb-3 p-2">
-										<p class="category-label text-muted small mb-1">
-											<?= htmlspecialchars($interview['main_category'] ?? 'Interview') ?>
-										</p>
-										<p class="text-muted small mb-2">
-											<?= date('F d, Y', strtotime($interview['created_at'] ?? date('Y-m-d'))) ?>
-										</p>
+							<div class="col-12">
+								<div class="card border shadow-sm rounded-3 overflow-hidden h-100">
+									<div class="row g-0 align-items-center">
+										<!-- Image -->
+										<div class="col-md-4">
+											<a href="<?= base_url('interviews/view/' . $interview['slug']) ?>">
+												<img src="<?= base_url(htmlspecialchars($interview['image'] ?? 'assets/default.jpg')) ?>"
+													alt="<?= htmlspecialchars($interview['title']) ?>"
+													class="img-fluid w-100 h-100"
+													style="object-fit: cover; ">
+											</a>
+										</div>
+
+										<!-- Content -->
+										<div class="col-md-8 ">
+											<div class="card-body p-3 ">
+												<div class="d-flex gap-4 align-items-center mb-2">
+													<small class="text-muted">
+														<i class="bi bi-calendar-event me-1"></i>
+														<?= date('d M Y', strtotime($interview['created_at'] ?? date('Y-m-d'))) ?>
+													</small>
+													<span class="badge bg-dark text-white">
+														<?= htmlspecialchars($interview['main_category'] ?? 'Interview') ?>
+													</span>
+												</div>
+
+												<h5 class="card-title fw-semibold mb-2">
+													<a href="<?= base_url('interviews/view/' . $interview['slug']) ?>"
+														class="text-decoration-none text-dark title-link">
+														<?= htmlspecialchars($interview['title']) ?>
+													</a>
+												</h5>
+
+												<p class="card-text text-muted small mb-0">
+													<?= htmlspecialchars(substr(strip_tags($interview['content'] ?? ''), 0, 150)) ?>...
+												</p>
+											</div>
+										</div>
 									</div>
-									<h5 class="card-title fs-6 fw-semibold p-2">
-										<?= htmlspecialchars($interview['title']) ?>
-									</h5>
 								</div>
 							</div>
 						<?php endforeach; ?>
@@ -225,46 +306,114 @@
 					<?php endif; ?>
 				</div>
 			</div>
+			<div class="col-lg-3 mt-3 mt-lg-0">
+				<div class="card shadow-lg border-0 rounded-3 p-4 text-center">
+					<!-- Icon -->
+					<div class="d-flex justify-content-center align-items-center bg-light rounded-circle mx-auto mb-3" style="width:60px; height:60px;">
+						<i class="bi bi-envelope-fill fs-3 text-primary" style="color:#264D70 !important;"></i>
+					</div>
+
+					<!-- Heading -->
+					<h5 class="fw-bold mb-2">Join 15,000+ Readers!</h5>
+					<p class="text-muted small mb-3">
+						Trending tech news, interviews & articles straight to your inbox.
+					</p>
+
+					<!-- Email Input -->
+					<form action="<?= base_url('welcome/subscribe') ?>" method="post">
+						<div class="mb-2">
+							<input type="email" name="email" class="form-control" placeholder="Email Address" required>
+						</div>
+						<div class="form-check text-start mb-3">
+							<input class="form-check-input" type="checkbox" id="policyCheck" required>
+							<label class="form-check-label small text-muted" for="policyCheck">
+								I agree to the <a href="#" class="text-decoration-none" style="color:#264D70;">Privacy Policy</a>
+							</label>
+						</div>
+						<button type="submit" class="btn w-100 text-white fw-semibold py-2" style="background:#264D70;">
+							SUBSCRIBE NOW
+						</button>
+					</form>
+
+				</div>
+			</div>
+
 		</div>
 
+		<style>
+			.card:hover {
+				transform: translateY(-4px);
+				transition: all 0.3s ease;
+				box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.1);
+			}
+
+			.title-link:hover {
+				color: #264D70;
+			}
+		</style>
+
+
 		<div class="mb-3 mt-3">
-			<span class="featured-label fw-bold">Industry Insights</span>
+			<span class="featured-label fw-bold fs-5">Industry Insights</span>
 		</div>
 
 		<!-- Nav Tabs -->
-		<ul class="nav nav-tabs flex-wrap gap-2 mb-3" id="myTab" role="tablist">
+		<ul class="nav nav-tabs border-0 mb-4" id="myTab" role="tablist">
 			<?php $i = 0;
 			foreach ($categories as $category): ?>
 				<li class="nav-item" role="presentation">
-					<a class="nav-link <?= $i == 0 ? 'active' : '' ?>"
+					<a class="nav-link <?= $i == 0 ? 'active' : '' ?> px-3 py-2 fw-semibold"
 						id="<?= strtolower($category) ?>-tab"
 						data-bs-toggle="tab"
 						href="#<?= strtolower($category) ?>"
-						role="tab"><?= $category ?></a>
+						role="tab">
+						<?= $category ?>
+					</a>
 				</li>
 			<?php $i++;
 			endforeach; ?>
 		</ul>
 
 		<!-- Tab Content -->
-		<!-- Tab Content -->
 		<div class="tab-content" id="myTabContent">
 			<?php $i = 0;
 			foreach ($categories as $category): ?>
-				<div class="tab-pane fade <?= $i == 0 ? 'show active' : '' ?>" id="<?= strtolower($category) ?>" role="tabpanel" aria-labelledby="<?= strtolower($category) ?>-tab">
+				<div class="tab-pane fade <?= $i == 0 ? 'show active' : '' ?>"
+					id="<?= strtolower($category) ?>"
+					role="tabpanel"
+					aria-labelledby="<?= strtolower($category) ?>-tab">
 
 					<?php if (!empty($news_by_category[$category])): ?>
 						<?php foreach ($news_by_category[$category] as $news): ?>
-							<div class="p-3 border rounded bg-white mb-3">
-								<h6 class="fw-semibold mb-1">
-									<a href="<?= base_url('news/view/' . $news['slug']) ?>" class="text-dark text-decoration-none">
-										<?= htmlspecialchars($news['title']) ?>
+							<div class="insight-item row g-3 align-items-center mb-3 p-3 border rounded-3 bg-white shadow-sm">
+
+								<!-- Thumbnail -->
+								<div class="col-12 col-md-4">
+									<a href="<?= base_url('news/view/' . $news['slug']) ?>">
+										<img src="<?= $news['image'] ?? 'https://dummyimage.com/120x90/264D70/fff&text=News' ?>"
+											alt="<?= htmlspecialchars($news['title']) ?>"
+											class="rounded w-100"
+											style="height: 170px; object-fit: cover;">
 									</a>
-								</h6>
-								<div class="d-flex justify-content-between text-muted small">
-									<span><?= htmlspecialchars($category) ?></span>
-									<span><?= date('d M Y', strtotime($news['created_at'])) ?></span>
 								</div>
+
+								<!-- Content -->
+								<div class="col-12 col-md-8">
+									<div class="d-flex gap-3 align-items-center mb-2 flex-wrap">
+										<span class="badge bg-dark px-3 py-1"><?= htmlspecialchars($category) ?></span>
+										<small class="text-muted"><?= date('d M Y', strtotime($news['created_at'])) ?></small>
+									</div>
+									<h6 class="fw-semibold mb-1">
+										<a href="<?= base_url('news/view/' . $news['slug']) ?>"
+											class="text-dark text-decoration-none title-link">
+											<?= htmlspecialchars($news['title']) ?>
+										</a>
+									</h6>
+									<p class="text-muted small mb-0">
+										<?= htmlspecialchars(substr(strip_tags($news['content'] ?? ''), 0, 200)) ?>...
+									</p>
+								</div>
+
 							</div>
 						<?php endforeach; ?>
 					<?php else: ?>
@@ -275,6 +424,7 @@
 			<?php $i++;
 			endforeach; ?>
 		</div>
+
 
 
 		<div class="row mt-4 mb-4">

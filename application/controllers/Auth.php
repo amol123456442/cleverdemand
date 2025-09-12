@@ -1,8 +1,10 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Auth extends CI_Controller {
-    public function __construct() {
+class Auth extends CI_Controller
+{
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('User_model');
         $this->load->library(['session', 'form_validation']);
@@ -10,21 +12,24 @@ class Auth extends CI_Controller {
         $this->load->database();
     }
 
-    public function login() {
+    public function login()
+    {
         if ($this->session->userdata('logged_in')) {
             redirect('createpost'); // Redirect to createpost if already logged in
         }
         $this->load->view('auth/login');
     }
 
-    public function register() {
+    public function register()
+    {
         if ($this->session->userdata('logged_in')) {
             redirect('createpost'); // Redirect to createpost if already logged in
         }
         $this->load->view('auth/register');
     }
 
-    public function authenticate() {
+    public function authenticate()
+    {
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
 
@@ -39,12 +44,13 @@ class Auth extends CI_Controller {
                 $user = $this->User_model->validate_user($username, $password);
 
                 if ($user) {
-                    $session_data = [   
-                        'username' => $user['username'],
-                        'user_id' => $user['id'],
-                        'role' => $user['role'],
+                    $session_data = [
+                        'username'   => $user['username'],
+                        'user_id'    => $user['id'],
+                        'role'       => $user['role'],
+                        'logged_in'  => TRUE
                     ];
-                    'logged_in' => TRUE
+                    $this->session->set_userdata($session_data);
                     $this->session->set_userdata($session_data);
                     $this->session->set_flashdata('success', 'Login successful!');
                     log_message('debug', 'User ' . $username . ' logged in successfully.');
@@ -62,7 +68,8 @@ class Auth extends CI_Controller {
         }
     }
 
-    public function save_register() {
+    public function save_register()
+    {
         $this->form_validation->set_rules('username', 'Username', 'required|is_unique[users.username]');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
@@ -100,7 +107,8 @@ class Auth extends CI_Controller {
         }
     }
 
-    public function logout() {
+    public function logout()
+    {
         $this->session->sess_destroy();
         $this->session->set_flashdata('success', 'Logged out successfully.');
         redirect('auth/login');
