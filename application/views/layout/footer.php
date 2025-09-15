@@ -48,7 +48,7 @@
     </div>
     <hr class="border-secondary mt-4">
     <div class="text-center small text-white-50">
-      © 2025 Propspect Presice. All Rights Reserved
+      © 2025 Propspect Presice. All Rights Reserved | <a href="<?php echo base_url('unsubscribe'); ?>"style="text-decoration: underline; color:white">Unsubscribe</a>
     </div>
   </div>
 </footer>
