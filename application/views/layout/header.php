@@ -252,7 +252,7 @@
 
     <!-- Logo -->
     <a class="navbar-brand me-5 text-light" href="<?php echo base_url('/'); ?>">
-      <img src="assets/images/Samsung_Logo.svg__1_-removebg-preview.png" width="150px" alt="">
+      <img src="assets/images/logo.png" width="150px" alt="">
     </a>
 
     <!-- Toggler (for mobile view) -->
