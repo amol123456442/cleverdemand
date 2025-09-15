@@ -1,14 +1,15 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Contact extends CI_Controller {
+class Contact extends CI_Controller
+{
 
     public function __construct()
     {
         parent::__construct();
         $this->load->model('Contact_model');
         $this->load->helper(array('form', 'url'));
-        $this->load->library('form_validation');
+        $this->load->library(array('form_validation', 'session'));
 
         // Call table creation check on load
         $this->Contact_model->create_table_if_not_exists();
@@ -35,7 +36,12 @@ class Contact extends CI_Controller {
             ];
 
             $this->Contact_model->insert_contact($data);
-            echo "✅ Contact form submitted and table created (if not exists)!";
+
+            // Flash success message
+            $this->session->set_flashdata('success', 'Your message has been sent successfully!');
+
+            // Redirect back to contact form page
+            redirect('contact');
         }
     }
 }
