@@ -24,8 +24,8 @@
           <i class="bi bi-square-fill me-2"></i>QUICK LINKS
         </h6>
         <ul class="list-unstyled">
-          <li class="mb-2"><a href="/" class="text-white text-decoration-none">Home</a></li>
-          <li class="mb-2"><a href="#" class="text-white text-decoration-none">About</a></li>
+          <li class="mb-2"><a href="<?php echo base_url('/'); ?>" class="text-white text-decoration-none">Home</a></li>
+          <li class="mb-2"><a href="<?php echo base_url('about'); ?>" class="text-white text-decoration-none">About</a></li>
           <li class="mb-2"><a href="<?php echo base_url('contact'); ?>"class="text-white text-decoration-none">Contact Us</a></li>
           <li><a href="<?php echo base_url('privacy-policy'); ?>"class="text-white text-decoration-none">Privacy-Policy</a></li>
         </ul>
