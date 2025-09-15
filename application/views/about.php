@@ -11,10 +11,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-    }
-
+ 
     /* Hero */
     .hero-section {
       background: linear-gradient(rgba(37, 77, 112, 0.85), rgba(37, 77, 112, 0.85)),
@@ -83,9 +80,6 @@
       margin-bottom: 30px;
       position: relative;
     }
-
-
-
     /* Team */
     .team-card {
       border: none;
@@ -121,13 +115,7 @@
       font-weight: 700;
     }
 
-    /* Footer */
-    footer {
-      background-color: #254D70;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
-    }
+   
   </style>
 </head>
 
