@@ -8,8 +8,8 @@
           <i class="bi bi-square-fill me-2"></i>ABOUT US
         </h6>
         <div class="mb-3">
-          <!-- <img src="assets/logo.png" alt="Logo" style="max-width: 120px;"> -->
-           <h1>Logo</h1>
+            <img src="assets/images/logo.png" width="150px" alt="">
+           <!-- <h1>Logo</h1> -->
         </div>
         <p class="small text-white-50">
           Propspect Presice empowers B2B technology decision-makers with the latest industry trends, 

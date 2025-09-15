@@ -42,18 +42,23 @@
         </ol>
     </nav>
 
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="fw-bold text-info">Information Technology</h1>
-                <hr class="w-50">
-                <p>Information technology is the core of today’s businesses. Read insights on <br> transforming
-                    information technology from a service function to a key driver of business growth.</p>
-                <a href="#" class="fs-4" style="text-decoration: underline; color: black; font-weight: bold;">Discover
-                    how Forrester supports IT leaders.</a>
-            </div>
+ <div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="fw-bold" style="color: #264D70;">Information Technology Articles</h1>
+            <hr class="w-50">
+            <p>
+                Dive into expert-written articles covering the latest developments in Information Technology. 
+                Explore topics on digital transformation, innovation, and strategies that help businesses 
+                stay competitive in a rapidly evolving world.
+            </p>
+            <a href="#" class="fs-4" style="text-decoration: underline; color: black; font-weight: bold;">
+                Browse all IT articles
+            </a>
         </div>
     </div>
+</div>
+
 
     <div class="container mb-4 mt-4">
         <div class="row">

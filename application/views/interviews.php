@@ -37,16 +37,23 @@
         </ol>
     </nav>
 
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="fw-bold text-info">Executive Insights</h1>
-                <hr class="w-50">
-                <p>Hear from industry leaders and innovators. Read exclusive interviews <br> sharing insights on driving business success and navigating challenges.</p>
-                <a href="#" class="fs-4" style="text-decoration: underline; color: black; font-weight: bold;">Discover how leaders shape the future.</a>
-            </div>
+   <div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="fw-bold " style="color: #264D70;">Exclusive Interviews</h1>
+            <hr class="w-50">
+            <p>
+                Explore in-depth conversations with top executives, entrepreneurs, and change-makers. 
+                Gain valuable perspectives on leadership, innovation, and strategies that are shaping 
+                the future of industries worldwide.
+            </p>
+            <a href="#" class="fs-4" style="text-decoration: underline; color: black; font-weight: bold;">
+                Read inspiring stories from industry leaders
+            </a>
         </div>
     </div>
+</div>
+
 
     <div class="container mb-4 mt-4">
         <div class="row">

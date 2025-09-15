@@ -56,22 +56,23 @@
         </ol>
     </nav>
 
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="fw-bold" style="color: #264D70;">Information Technology</h1>
-                <hr class="w-50">
-                <p>
-                    Technology is no longer just a support system—it’s the foundation of innovation and growth.
-                    Explore the latest trends, strategies, and solutions that help organizations turn IT into a
-                    competitive advantage.
-                </p>
-                <a href="#" class="fs-4" style="text-decoration: underline; color: black; font-weight: bold;">
-                    Learn how Forrester empowers IT leaders worldwide.
-                </a>
-            </div>
+<div class="container py-5 ">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="fw-bold" style="color: #264D70;">Latest in Information Technology</h1>
+            <hr class="w-50">
+            <p>
+                Stay updated with the latest developments in the world of Information Technology. 
+                From emerging trends and breakthrough innovations to industry insights and expert analysis— 
+                explore how technology continues to shape businesses and everyday life.
+            </p>
+            <a href="#" class="fs-4" style="text-decoration: underline; color: black; font-weight: bold;">
+                Read more IT news and insights
+            </a>
         </div>
     </div>
+</div>
+
 
 
     <div class="container mb-4 mt-4">

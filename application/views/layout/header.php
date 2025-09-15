@@ -251,7 +251,9 @@
   <div class="container-fluid d-flex justify-content-between align-items-center">
 
     <!-- Logo -->
-    <a class="navbar-brand me-5 text-light" href="<?php echo base_url('/'); ?>">Logo</a>
+    <a class="navbar-brand me-5 text-light" href="<?php echo base_url('/'); ?>">
+      <img src="assets/images/Samsung_Logo.svg__1_-removebg-preview.png" width="150px" alt="">
+    </a>
 
     <!-- Toggler (for mobile view) -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -392,6 +394,9 @@
           </li>
           <li class="nav-item mx-3">
             <a class="nav-link text-light" href="<?php echo base_url('resources'); ?>">Resources</a>
+          </li>
+                <li class="nav-item mx-3">
+            <a class="nav-link text-light" href="<?php echo base_url('contact'); ?>">Contact Us</a>
           </li>
         </ul>
 
